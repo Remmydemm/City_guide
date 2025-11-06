@@ -86,7 +86,7 @@ struct ContentView: View {
             // Map View
             MapView(
                 userLocation: locationManager.location,
-                pois: POI.stuttgartPOIs,
+                pois: locationManager.availablePOIs,
                 visitedPOIs: audioGuide.visitedPOIs
             )
             .frame(maxHeight: .infinity)
@@ -108,8 +108,20 @@ struct ContentView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Text("Stuttgart Audio Guide")
-                    .font(.headline)
+                VStack(spacing: 2) {
+                    Text("Audio Guide")
+                        .font(.headline)
+                    Text("\(locationManager.availablePOIs.count) POIs")
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                }
+            }
+
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: toggleDiscoveryMode) {
+                    Image(systemName: locationManager.useDynamicDiscovery ? "globe" : "book.fill")
+                        .foregroundColor(locationManager.useDynamicDiscovery ? .green : .blue)
+                }
             }
         }
         .alert("Error", isPresented: $showingError) {
@@ -227,6 +239,10 @@ struct ContentView: View {
         ttsService.stop()
         audioGuide.reset()
         locationManager.resetTrigger()
+    }
+
+    private func toggleDiscoveryMode() {
+        locationManager.toggleDynamicDiscovery(!locationManager.useDynamicDiscovery)
     }
 }
 

@@ -18,6 +18,8 @@
 		A10000011 /* PersonaSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000010 /* PersonaSelectorView.swift */; };
 		A10000013 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012 /* MapView.swift */; };
 		A10000015 /* AudioControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000014 /* AudioControlsView.swift */; };
+		A10000017 /* POIDiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000016 /* POIDiscoveryService.swift */; };
+		A10000019 /* GooglePlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000018 /* GooglePlacesService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +35,9 @@
 		A10000010 /* PersonaSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonaSelectorView.swift; sourceTree = "<group>"; };
 		A10000012 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A10000014 /* AudioControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioControlsView.swift; sourceTree = "<group>"; };
-		A10000016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10000016 /* POIDiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIDiscoveryService.swift; sourceTree = "<group>"; };
+		A10000018 /* GooglePlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesService.swift; sourceTree = "<group>"; };
+		A1000001A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +70,7 @@
 		A0FFFFFE0 /* StuttgartGuide */ = {
 			isa = PBXGroup;
 			children = (
-				A10000016 /* Info.plist */,
+				A1000001A /* Info.plist */,
 				A0FFFFFE1 /* App */,
 				A0FFFFFE2 /* Models */,
 				A0FFFFFE3 /* Services */,
@@ -99,6 +103,8 @@
 				A1000000A /* LocationManager.swift */,
 				A1000000C /* ClaudeAPIService.swift */,
 				A1000000E /* TextToSpeechService.swift */,
+				A10000016 /* POIDiscoveryService.swift */,
+				A10000018 /* GooglePlacesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -193,6 +199,8 @@
 				A10000011 /* PersonaSelectorView.swift in Sources */,
 				A10000013 /* MapView.swift in Sources */,
 				A10000015 /* AudioControlsView.swift in Sources */,
+				A10000017 /* POIDiscoveryService.swift in Sources */,
+				A10000019 /* GooglePlacesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

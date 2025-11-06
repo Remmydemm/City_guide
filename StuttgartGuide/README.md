@@ -11,10 +11,17 @@ A location-based audio guide app for iOS that provides AI-generated narrations o
   - **Comedian**: Funny observations and quirky facts
   - **Local Insider**: Hidden gems and local culture
 
+- **Dynamic POI Discovery**: Automatically discovers nearby tourist attractions using MapKit
+  - Works in **any city worldwide** - not just Stuttgart!
+  - Finds museums, landmarks, parks, theaters, and more
+  - Toggle between dynamic discovery and curated POIs
+  - Optional Google Places API integration for enhanced data
+
 - **GPS Location Tracking**: Automatically detects when you're within 20-30 meters of a POI
 - **AI-Generated Content**: Uses Claude API (claude-sonnet-4-5) for contextual narrations
 - **Text-to-Speech**: Native iOS text-to-speech with play/pause/stop controls
 - **Interactive Map**: Shows all POIs and tracks visited locations
+- **Scalable Architecture**: Easily expand to new cities without code changes
 
 ## Stuttgart POIs Included
 
@@ -127,7 +134,78 @@ open StuttgartGuide.xcodeproj
 - Switch personas to get different perspectives on the same location
 - Check the map to see which POIs you've visited (green checkmark)
 
-## Adding More Stuttgart POIs
+## Dynamic POI Discovery
+
+### How It Works
+
+The app now **automatically discovers nearby tourist attractions** in any city! No need to hardcode POIs anymore.
+
+**Features:**
+- 🌍 **Works globally**: Munich, Berlin, Paris, London, anywhere!
+- 🔍 **Auto-discovery**: Finds museums, landmarks, parks, theaters, etc.
+- 🔄 **Toggle mode**: Switch between dynamic and curated POIs
+- 📍 **Smart caching**: Avoids excessive API calls
+- 🎯 **5km radius**: Discovers attractions within 5km of your location
+
+### Using Dynamic Discovery
+
+1. **Enable Dynamic Mode** (default): Tap the globe icon (🌐) in the toolbar
+   - Globe icon = Dynamic discovery enabled
+   - Book icon = Using curated POIs only
+
+2. **How it discovers**:
+   - When you first open the app, it scans your area
+   - Finds up to 20 nearby tourist attractions
+   - Merges with curated POIs for best results
+   - Updates when you move >1km away
+
+3. **POI Categories Discovered**:
+   - Museums and galleries
+   - Historic landmarks
+   - Parks and nature reserves
+   - Theaters and cultural venues
+   - Castles and fortifications
+   - Stadiums and sports venues
+   - Libraries
+   - Zoos and aquariums
+
+### Expanding to New Cities
+
+**No code changes needed!** Just:
+
+1. Open the app in any city
+2. Enable dynamic discovery (globe icon)
+3. The app automatically finds attractions
+4. Walk around and explore!
+
+**Example cities:**
+- 🇩🇪 **Munich**: Marienplatz, English Garden, BMW Museum
+- 🇩🇪 **Berlin**: Brandenburg Gate, Museum Island, Reichstag
+- 🇫🇷 **Paris**: Eiffel Tower, Louvre, Notre-Dame
+- 🇬🇧 **London**: Big Ben, Tower Bridge, British Museum
+- 🇮🇹 **Rome**: Colosseum, Vatican, Trevi Fountain
+
+### Optional: Google Places Integration
+
+For even better POI data, you can add Google Places API support:
+
+1. Get a Google Places API key ([Get one here](https://developers.google.com/maps/documentation/places/web-service/get-api-key))
+2. The app already has `GooglePlacesService.swift` ready
+3. Modify `LocationManager` to use Google Places instead of MapKit
+4. Benefit: Better descriptions, ratings, photos, opening hours
+
+**Why MapKit by default?**
+- ✅ **Free** - No API costs
+- ✅ **Native** - Built into iOS
+- ✅ **Privacy** - No third-party data sharing
+- ✅ **Good coverage** - Works well for major attractions
+
+**When to use Google Places?**
+- Need detailed information (ratings, reviews, photos)
+- Want better categorization
+- Operating commercially with budget for API costs
+
+## Adding More Curated POIs
 
 To add additional points of interest:
 

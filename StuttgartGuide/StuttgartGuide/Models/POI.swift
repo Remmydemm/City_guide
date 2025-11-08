@@ -87,7 +87,7 @@ extension POI {
         return distance <= radius
     }
 
-    var distanceFrom(_ location: CLLocation) -> CLLocationDistance {
+    func distanceFrom(_ location: CLLocation) -> CLLocationDistance {
         let poiLocation = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         return location.distance(from: poiLocation)
     }
